@@ -1,0 +1,12 @@
+[submodule "models/gaussian_surfels"]
+	path = models/gaussian_surfels
+	url = git@github.com:Soooooda69/gaussian_surfels.git
+[submodule "models/depth-to-normal-translator"]
+	path = models/depth-to-normal-translator
+	url = https://github.com/fengyi233/depth-to-normal-translator.git
+[submodule "models/depth_anything"]
+	path = models/depth_anything
+	url = git@github.com:Soooooda69/depth_anything.git
+[submodule "OneSLAM_Arthro"]
+	path = OneSLAM_Arthro
+	url = git@github.com:Soooooda69/OneSLAM_Arthro.git

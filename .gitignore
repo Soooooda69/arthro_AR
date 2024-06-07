@@ -1,0 +1,13 @@
+# Ignore files larger than 10MB
+*.iso
+*.zip
+*.tar.gz
+*.ipynb
+
+# Ignore directories with large files
+/models/DNGaussian/
+/models/GaussianObject/
+/models/GaussianObject_o/
+/data/*
+/output/*
+/OneSLAM/
