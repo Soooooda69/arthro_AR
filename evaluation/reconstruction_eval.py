@@ -77,14 +77,16 @@ def manual_registration(source, target):
     # point-to-point ICP for refinement
     print("Perform point-to-point ICP refinement")
     threshold = 0.03  # 3cm distance threshold
-    reg_p2p = o3d.registration.registration_icp(
-        source, target, threshold, trans_init,
-        o3d.registration.TransformationEstimationPointToPoint(with_scaling=True))
-    draw_registration_result(source, target, reg_p2p.transformation)
-    print("")
-    source.transform(reg_p2p.transformation)
+    # reg_p2p = o3d.registration.registration_icp(
+    #     source, target, threshold, trans_init,
+    #     o3d.registration.TransformationEstimationPointToPoint(with_scaling=True))
+    draw_registration_result(source, target, trans_init)
+    save_path = args.save + '/gs_surfel/trans_init.npy'
+    np.save(save_path, trans_init)
+    print("Transformation matrix saved as 'trans_init.npy'")
+    source.transform(trans_init)
     findCorrespondences(source, target)
-    return reg_p2p
+    return trans_init
 
 def PointsRegistration(source_points, target_points):
     # Create Open3D point cloud objects
@@ -157,6 +159,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Point Cloud Registration')
     parser.add_argument('--source', type=str, required=True, help='Path to the source point cloud file')
     parser.add_argument('--target', type=str, required=True, help='Path to the target point cloud file')
+    parser.add_argument('--save', type=str, required=True, help='Path to save registration result')
+
     args = parser.parse_args()
 
     # data_path = '../data/reconstruction_eval/'
@@ -168,7 +172,7 @@ if __name__ == '__main__':
     k = 5  # Number of neighbors to consider
     pcd_source_filtered, _ = pcd_source.remove_radius_outlier(nb_points=k, radius=0.1)
     # Clip the pcd source by depth
-    depth_min = 0.5  # Minimum depth value
+    depth_min = 0.  # Minimum depth value
     depth_max = 1.8  # Maximum depth value
     pcd_source_clipped = pcd_source_filtered.crop(o3d.geometry.AxisAlignedBoundingBox([float('-inf'), float('-inf'), depth_min], [float('inf'), float('inf'), depth_max]))
     

@@ -15,7 +15,7 @@ cd OneSLAM_Arthro
 output_folder="../output"
 # trial=$sequence
 data_root="../data/phantom_data_64/$sequence"
-python slam.py --data_root $data_root --output_folder $output_folder --name $sequence --process_subset --start_idx 1 --end_idx 200 \
+python slam.py --data_root $data_root --output_folder $output_folder --name $sequence --process_subset --start_idx 250 --end_idx 300 \
                     --local_ba_size 12 --tracked_point_num_min 600 --tracked_point_num_max 800 \
 
 python ../utils/helper.py --track_path ../data/temp_data/localize_tracking --save_track

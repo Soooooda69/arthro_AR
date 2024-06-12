@@ -43,9 +43,9 @@ output_folder="../output"
 # python slam.py --data_root $data_root --output_folder $output_folder --name $trial --process_subset --start_idx 200 --end_idx 400 \
 #                     --local_ba_size 12 --tracked_point_num_min 600 --tracked_point_num_max 800\
 
-trial="right_cm"
+trial="right_p2"
 data_root="../data/phantom_data_64/$trial"
-python slam.py --data_root $data_root --output_folder $output_folder --name $trial --process_subset --start_idx 1 --end_idx 250 \
+python slam.py --data_root $data_root --output_folder $output_folder --name $trial --process_subset --start_idx 300 --end_idx 500 \
                     --section_length 6 --local_ba_size 12 --tracked_point_num_min 600 --tracked_point_num_max 800 \
 
 
