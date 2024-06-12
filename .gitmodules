@@ -10,3 +10,6 @@
 [submodule "OneSLAM_Arthro"]
 	path = OneSLAM_Arthro
 	url = git@github.com:Soooooda69/OneSLAM_Arthro.git
+[submodule "UnityGaussianSplatting"]
+	path = UnityGaussianSplatting
+	url = git@github.com:Soooooda69/UnityGaussianSplatting.git
